@@ -1,0 +1,267 @@
+/* styles.css */
+.editable-element {
+  position: relative;
+}
+
+.editable-element:hover {
+  outline: 1px dashed #007bff;
+}
+
+.image-edit-container {
+  position: relative;
+  display: inline-block;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+}
+
+.image-edit-container:hover .image-overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.image-edit-button,
+.image-revert-button,
+.bg-edit-button {
+  padding: 8px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 2147483647;
+}
+
+.bg-edit-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+*[data-bg-editable]:hover .bg-edit-button {
+  opacity: 1;
+}
+
+.editor-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2147483647;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.editor-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.bg-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.editor-select {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+.dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.dialog-actions button {
+  padding: 8px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f0;
+}
+
+.dialog-actions button:first-child {
+  background: #007bff;
+  color: white;
+}
+
+.error-toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ff4444;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  z-index: 2147483647;
+}
+
+/* Thêm vào styles.css */
+.bg-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 2147483647;
+}
+
+*[data-bg-editable]:hover .bg-controls {
+  opacity: 1;
+}
+
+.bg-edit-button,
+.bg-download-button,
+.bg-delete-button,
+.image-delete-button {
+  padding: 8px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.image-delete-button:hover,
+.bg-delete-button:hover {
+  background: #ff4444;
+  color: white;
+}
+
+.bg-download-button:hover {
+  background: #4CAF50;
+  color: white;
+}
+
+/* Thêm vào styles.css */
+body.edit-mode .editable-element:hover {
+  outline: 2px dashed #007bff;
+  position: relative;
+}
+
+body.edit-mode .editable-element:focus {
+  outline: 2px solid #007bff;
+  position: relative;
+}
+
+body.edit-mode .image-edit-container:hover .image-overlay {
+  opacity: 1;
+  pointer-events: all;
+}
+
+body.edit-mode *[data-bg-editable]:hover .bg-controls {
+  opacity: 1;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.bg-controls {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  z-index: 999999;
+}
+
+.image-edit-button,
+.image-delete-button,
+.image-revert-button,
+.bg-edit-button,
+.bg-download-button,
+.bg-delete-button {
+  padding: 8px;
+  background: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  z-index: 1000000;
+}
+
+.editor-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: white;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  z-index: 1000001;
+  min-width: 300px;
+}
